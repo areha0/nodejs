@@ -24,7 +24,7 @@ http.createServer((req, res) => {
   // 在客户端上打印信息
 
   // 结束服务器响应
-  res.end("wobuhao");
+  res.end("wobuhao,xxxx");
 }).listen(8081)
 
 console.log("正在监听8081端口");
