@@ -30,27 +30,20 @@ exports.routes = function (request, response, static) {
   let url = new URL(request.url, `http://${request.headers.host}`);
   let pathname = url.pathname;
   pathname = (pathname == "/") ? "/index.html" : pathname;
+  let extname = path.extname(pathname);
+  if (extname) {
+    if (pathname != "/favicon.ico") {
 
-  if (pathname != "/favicon.ico") {
-
-    // if (err) {
-    //   console.log(err);
-    //   response.writeHead(404, { 'content-type': 'text/html; charset="utf-8"' })
-    //   response.end("404, 未找到该文件")
-    //   return
-    // };
-
-    try {
-      let data = fs.readFileSync("./" + static + pathname);
-      if (data) {
-        let extname = path.extname(pathname);
-        let head = getHead(extname);
-        response.writeHead(200, { 'content-type': '' + head + '; charset="utf-8"' })
-        response.end(data)
+      try {
+        let data = fs.readFileSync("./" + static + pathname);
+        if (data) {
+          let head = getHead(extname);
+          response.writeHead(200, { 'content-type': '' + head + '; charset="utf-8"' })
+          response.end(data)
+        }
+      } catch (error) {
       }
-    } catch (error) {
-      // console.log(error);
-    }
 
+    }
   }
 }
