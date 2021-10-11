@@ -16,10 +16,37 @@ http.createServer(function (request, response) {
   let pathname = url.pathname;
   pathname = (pathname == "/") ? "/inde.html" : pathname;
   let extname = path.extname(pathname);
+
+  // 获取数据的请求类型
+  console.log(request.method);
+
   if (!extname) {
     if (pathname == "/login") {
-      response.writeHead(200, { 'content-type': 'text/html; charset="utf-8"' });
-      response.end("欢迎登陆")
+      // 3. 在这里提供一个执行post请求的表单, 解析post数据在 /toLogin中
+      fs.readFile("./pages/login.html", (err, data) => {
+        if (err) {
+          console.log(err);
+          return
+        };
+        response.writeHead(200, { 'content-type': 'text/html; charset="utf-8"' });
+        response.end(data)
+      })
+    } else if (pathname == "/toLogin") {
+      // 4. 在这里处理post请求的数据
+      let postData = "";
+      request.on("data", (chunk) => {
+        postData += chunk
+      });
+      request.on("end", () => {
+        if (postData) {
+          console.log(postData);
+          response.writeHead(200, { 'content-type': 'text/html; charset="utf-8"' });
+          response.end(postData)
+        } else {
+          console.log("没有数据");
+        }
+      })
+
     } else if (pathname == "/registor") {
       response.writeHead(200, { 'content-type': 'text/html; charset="utf-8"' });
       response.end("欢迎注册")
@@ -33,6 +60,13 @@ http.createServer(function (request, response) {
         response.writeHead(200, { 'content-type': 'text/html, charset="utf-8"' });
         response.end(data)
       })
+    } else if (pathname == "/new") {
+      // 2.在这里获取并处理get请求传入的数据
+      let data = url.searchParams;
+      console.log(data);
+      response.writeHead(200, { 'content-type': 'text/html, charset="utf-8"' });
+      response.end(data.get("name") + "--" + data.get("age"));
+
     } else {
       response.writeHead(404, { 'content-type': 'text/html, charset="utf-8"' });
       response.end("404, file not found")
