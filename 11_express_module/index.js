@@ -16,6 +16,7 @@ let app = require("./express");
 // 2. 对http模块进行改造
 http.createServer(app).listen(8081);
 
+
 app.get("/", (request, response) => {
   response.send(200, "则是首页")
 })
@@ -39,6 +40,9 @@ app.get("/test", (request, response) => {
   })
 })
 app.post("/doLogin", (request, response) => {
-  response.send(200, request.body)
+  response.send(200, request.body);
 })
+
+// 注册静态web服务目录
+app.static("static")
 console.log('Server running at http://127.0.0.1:8081/');
