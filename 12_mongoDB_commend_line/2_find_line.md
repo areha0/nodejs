@@ -17,3 +17,7 @@
 12. find().sort({age:-1}) -- 表示降序排列
 13. find().limit(5) -- 表示只显示前五条数据
 14. find().skip(5) -- 表示跳过前五条数据
+15. find().skip((page-1)*count).limit(count) -- 可以用于分页
+16. find({$or: [{"age":22}, {"age":25}]}) -- $or 表示或
+17. findOne() -- 表示查找第一条数据, 可以使用limit(1)来代替
+18. find().count() -- 表示查找到的数据的个数

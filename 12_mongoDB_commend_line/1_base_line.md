@@ -8,3 +8,9 @@
 6. db.dropDatabase() -- 删除数据库, 使用方法: 先use要删除的数据库, 再执行命令
 7. db.setname.drop() -- 删除集合
 8. db.setname.find() -- 查询集合中所有数据
+9. 批量添加数据, 使用for循环, 使用方法和js一样
+for(let i=1; i<100; i++){
+  db.集合名字.insert({"name":"shuosuo"+i, "age":i})
+};
+
+**cls可以用于清屏**
