@@ -12,8 +12,9 @@ app.get("/", (req, res) => {
 })
 
 // 2. 使用express托管静目录文件
+// 内置型中间件
 app.use(express.static("static"))
-// *** 注意在ejs文件中引入css文件时, 其正确的引入路径应该是相对于index.js文件的
+// *** 注意在ejs文件中引入css文件时, 其正确的引入路径应该是相对于中间中所声明的目录
 
 
 app.listen(8081);
