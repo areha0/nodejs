@@ -17,7 +17,6 @@ app.use(express.json());
 app.engine("html", ejs.__express);
 app.set("view engine", "html");
 
-
 // 4. 内置中间件, 可以用于监测静态web服务
 app.use(express.static("./public"));
 
