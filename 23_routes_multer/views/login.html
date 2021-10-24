@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>这是登录页面</h2>
+  <!-- 注意这里的form指向 -->
+  <!-- 使用multer上传文件时, 要指明enctype -->
+  <form action="/front/doLogin" method="post" enctype="multipart/form-data">
+    名字: <input type="text" name="name">
+    <br>
+    <br>
+    <!-- 照片: <input type="file" name="pic" id="file"> -->
+    照片: <input type="file" name="pic1" id="file">
+    <br>
+    <br>
+    <!-- 照片: <input type="file" name="pic" id="file"> -->
+    照片: <input type="file" name="pic2" id="file">
+    <br>
+    <br>
+    年龄: <input type="text" name="age">
+    <br>
+    <br>
+    <input type="submit" value="提交">
+  </form>
+</body>
+
+</html>
