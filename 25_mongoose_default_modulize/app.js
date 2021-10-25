@@ -27,10 +27,28 @@
 
 const User = require("./model/user")
 
-User.find({}, (err, result) => {
-  if (err) {
-    console.log(err);
-    return
-  };
-  console.log(result);
-})
+// User.find({}, (err, result) => {
+//   if (err) {
+//     console.log(err);
+//     return
+//   };
+//   console.log(result);
+// })
+
+// ** 封装的静态方法演示
+// User.findByNameae("shuosuo", (err, result) => {
+//   if (err) {
+//     console.log(err);
+//     return
+//   };
+//   console.log(result);
+// });
+
+// ** 封装的实例方法演示
+let user = new User({
+  name: "angshuo",
+  age: 18,
+  sex: "male"
+});
+
+user.print();
