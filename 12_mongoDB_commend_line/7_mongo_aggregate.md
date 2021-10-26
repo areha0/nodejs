@@ -39,6 +39,7 @@ db.order_item.aggregate([
   }
 ])
 <!--  -->
+**注意:在聚合管道中, 可以实现多次的$lookup, 从而实现多表的关联查询**
 db.order.aggregate([
   {
     $lookup:{
