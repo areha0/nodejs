@@ -5,14 +5,13 @@
 //   setTimeout(() => {
 //     let name = "shuosuo";
 //     // 直接在异步操作内部进行打印并不能够生效
-//     // console.log(name + "nihaoa");
+//     console.log(name + "nihaoa");
 //     callback(name)
 //   }, 1000);
 // }
 
 // getData(value => console.log(value))
 //#endregion
-
 
 // 2. 来到了我们的重头戏 async/await
 // async可以将一个同步函数该变成为一个异步函数

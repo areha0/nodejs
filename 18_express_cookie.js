@@ -21,7 +21,8 @@ app.use(cookieParser("shuosuo"));
 
 // **  1. 设置cookie使用res.cookie
 app.get("/", (req, res) => {
-  res.cookie("name", "shuosuo", { maxAge: 1000 * 60 * 60, signed: true });
+  // res.cookie("name", "shuosuo", { maxAge: 1000 * 60 * 60, signed: true });
+  res.cookie("name", "shuosuo", { maxAge: 1000 * 60 * 60 });
   res.send("这是首页")
 })
 
@@ -33,10 +34,10 @@ app.get("/user", (req, res) => {
 })
 
 // 4. 使用加密的cookie
-app.get("/account", (req, res) => {
-  let name = req.signedCookies.name;
-  res.send("用户名--" + name)
-})
+// app.get("/account", (req, res) => {
+//   let name = req.signedCookies.name;
+//   res.send("用户名--" + name)
+// })
 
 app.listen(8081);
 console.log("http://127.0.0.1:8081");

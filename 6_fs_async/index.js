@@ -45,6 +45,7 @@ let res = [];
 //     res.push(i);
 //   }, 100)
 // }
+// console.log(res);
 // setTimeout(() => {
 //   console.log(res);
 // }, 200)
@@ -56,28 +57,28 @@ let res = [];
 // 递归解决不了问题了
 
 //#region 
-fs.readdir(path, (err, files) => {
-  if (err) {
-    console.log(err);
-    return;
-  };
-  // 使用递归进行循环
-  (function judge(i) {
-    if (i == files.length) {
-      setTimeout(() => {
-        console.log(res);
-      }, 100);
-      return
-    }
-    let enpath = path + "/" + files[i];
-    fs.stat(enpath, (err, data) => {
-      if (data.isDirectory()) {
-        // console.log(enpath, files[i]);
-        res.push(files[i]);
-        // console.log(res);
-      }
-    });
-    judge(i + 1);
-  })(0);
-})
+// fs.readdir(path, (err, files) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   };
+//   // 使用递归进行循环
+//   (function judge(i) {
+//     if (i == files.length) {
+//       setTimeout(() => {
+//         console.log(res);
+//       }, 100);
+//       return
+//     }
+//     let enpath = path + "/" + files[i];
+//     fs.stat(enpath, (err, data) => {
+//       if (data.isDirectory()) {
+//         // console.log(enpath, files[i]);
+//         res.push(files[i]);
+//         // console.log(res);
+//       }
+//     });
+//     judge(i + 1);
+//   })(0);
+// })
 //#endregion

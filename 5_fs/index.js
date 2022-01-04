@@ -28,7 +28,7 @@ const fs = require("fs");
       console.log("是一个目录");
     }
   })
-*/
+
 //#endregion
 
 //#region 2. fs.mkdir
@@ -117,10 +117,10 @@ const fs = require("fs");
 */
 //#endregion
 
-fs.unlink("./test.js", err => {
-  if (err) {
-    console.log(err);
-    return
-  };
-  console.log("删除文件成功");
-})
+// fs.unlink("./test.js", err => {
+//   if (err) {
+//     console.log(err);
+//     return
+//   };
+//   console.log("删除文件成功");
+// })
